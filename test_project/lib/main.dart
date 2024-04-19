@@ -18,6 +18,7 @@ class MathGameApp extends StatelessWidget {
   }
 }
 
+//Login Firebase Authorizing
 class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -52,6 +53,7 @@ class LoginPage extends StatelessWidget {
     }
   }
 
+  //Login Page (Sign in & Sign up)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -291,6 +293,7 @@ class GamePage extends StatefulWidget {
   _GamePageState createState() => _GamePageState();
 }
 
+//Game rounds
 class _GamePageState extends State<GamePage> {
   int remainingAttempts = 3;
   int currentLevel = 1;
@@ -310,7 +313,7 @@ class _GamePageState extends State<GamePage> {
       setState(() {
         score += 1;
       });
-
+//This is for winning message
       if (currentLevel == questions.length) {
         showDialog(
           context: context,
@@ -365,7 +368,7 @@ class _GamePageState extends State<GamePage> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text('اجابة خاطئة!'),
-              content: Text('لاتقلق يمكنك المحاولة مره اخرى. النقاط: $score'),
+              content: Text('لاتقلق يمكنك المحاولة مره اخرى. النقاط: $score'), //This is for attempts
               actions: [
                 TextButton(
                   onPressed: () {
@@ -389,7 +392,7 @@ class _GamePageState extends State<GamePage> {
             return AlertDialog(
               title: Text('اجابة خاطئة!'),
               content: Text(
-                  'لم تحزر الإجابة. لديك $remainingAttempts محاولات متبقية.'),
+                  'لم تحزر الإجابة. لديك $remainingAttempts محاولات متبقية.'), //Shows remaining attempts
               actions: [
                 TextButton(
                   onPressed: () {
@@ -468,10 +471,10 @@ class ScoreBar extends StatelessWidget {
         children: [
           Text(
             'المرحلة $currentLevel',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.black), //Shows round
           ),
           Text(
-            'النقاط: $score',
+            'النقاط: $score', // Shows score
             style: TextStyle(color: Colors.black),
           ),
         ],
@@ -488,6 +491,7 @@ class Question {
   Question(this.questionText, this.choices, this.correctAnswerIndex);
 }
 
+//Settings page
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -501,7 +505,7 @@ class SettingsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'إعدادات الصوت',
+              'إعدادات الصوت', //Audio settings
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SwitchListTile(
@@ -511,7 +515,7 @@ class SettingsPage extends StatelessWidget {
             ),
             const Divider(),
             const Text(
-              'تغيير المعلومات الشخصية',
+              'تغيير المعلومات الشخصية', //Personal info settings
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             ListTile(
@@ -538,7 +542,7 @@ class SettingsPage extends StatelessWidget {
             ),
             const Divider(),
             const Text(
-              'تغيير كلمة المرور',
+              'تغيير كلمة المرور', //Passsword settings
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             ListTile(
@@ -558,7 +562,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 }
-
+//Changing Email
 class ChangeEmail extends StatelessWidget {
   final TextEditingController currentEmailController = TextEditingController();
   final TextEditingController newEmailController = TextEditingController();
@@ -623,7 +627,7 @@ class ChangeEmail extends StatelessWidget {
     );
   }
 }
-
+//Changing password
 class ChangePasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -667,7 +671,7 @@ class ChangePasswordPage extends StatelessWidget {
     );
   }
 }
-
+//Changing username
 class ChangeNameDialog extends StatelessWidget {
   final TextEditingController newNameController = TextEditingController();
 
